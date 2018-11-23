@@ -1,0 +1,116 @@
+package com.javalec.db;
+
+public class MemberBean {
+//데이터 get set
+
+	private String mb_id;
+	private String mb_password;
+	private String mb_password_re;
+	private String mb_name;
+	private String mb_nick_default;
+	private String mb_email;
+	private String mb_1;
+	private String mb_homepage;
+	private String mb_tel;
+	private String mb_zip;
+	private String mb_addr1;
+	private String mb_addr2;
+	private String mb_addr3;
+	private String mb_mailling;
+	private String mb_sms;
+	public String getMb_id() {
+		return mb_id;
+	}
+	public void setMb_id(String mb_id) {
+		this.mb_id = mb_id;
+	}
+	public String getMb_password() {
+		return mb_password;
+	}
+	public void setMb_password(String mb_password) {
+		this.mb_password = mb_password;
+	}
+	public String getMb_password_re() {
+		return mb_password_re;
+	}
+	public void setMb_password_re(String mb_password_re) {
+		this.mb_password_re = mb_password_re;
+	}
+	public String getMb_name() {
+		return mb_name;
+	}
+	public void setMb_name(String mb_name) {
+		this.mb_name = mb_name;
+	}
+	public String getMb_nick_default() {
+		return mb_nick_default;
+	}
+	public void setMb_nick_default(String mb_nick_default) {
+		this.mb_nick_default = mb_nick_default;
+	}
+	public String getMb_email() {
+		return mb_email;
+	}
+	public void setMb_email(String mb_email) {
+		this.mb_email = mb_email;
+	}
+	public String getMb_1() {
+		return mb_1;
+	}
+	public void setMb_1(String mb_1) {
+		this.mb_1 = mb_1;
+	}
+	public String getMb_homepage() {
+		return mb_homepage;
+	}
+	public void setMb_homepage(String mb_homepage) {
+		this.mb_homepage = mb_homepage;
+	}
+	public String getMb_tel() {
+		return mb_tel;
+	}
+	public void setMb_tel(String mb_tel) {
+		this.mb_tel = mb_tel;
+	}
+	public String getMb_zip() {
+		return mb_zip;
+	}
+	public void setMb_zip(String mb_zip) {
+		this.mb_zip = mb_zip;
+	}
+	public String getMb_addr1() {
+		return mb_addr1;
+	}
+	public void setMb_addr1(String mb_addr1) {
+		this.mb_addr1 = mb_addr1;
+	}
+	public String getMb_addr2() {
+		return mb_addr2;
+	}
+	public void setMb_addr2(String mb_addr2) {
+		this.mb_addr2 = mb_addr2;
+	}
+	public String getMb_addr3() {
+		return mb_addr3;
+	}
+	public void setMb_addr3(String mb_addr3) {
+		this.mb_addr3 = mb_addr3;
+	}
+	public String getMb_mailling() {
+		return mb_mailling;
+	}
+	public void setMb_mailling(String mb_mailling) {
+		this.mb_mailling = mb_mailling;
+	}
+	public String getMb_sms() {
+		return mb_sms;
+	}
+	public void setMb_sms(String mb_sms) {
+		this.mb_sms = mb_sms;
+	}
+	
+	
+
+	
+
+}

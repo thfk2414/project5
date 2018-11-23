@@ -1,0 +1,46 @@
+package com.javalec.ex.command;
+
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+
+import com.javalec.db.MemberBean;
+import com.javalec.db.MemberDao;
+
+public class MemberLoginAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		request.setCharacterEncoding("UTF-8");
+		ActionForward forward = new ActionForward();
+
+		HttpSession session = request.getSession();
+		MemberDao memberdao = new MemberDao();
+
+		String Member_ID = request.getParameter("mb_id");
+		String MEMBER_PW = request.getParameter("mb_password");
+		
+		String RequestURI = request.getRequestURI();
+		String contextPath = request.getContextPath();
+		String command = RequestURI.substring(contextPath.length());
+
+		if (memberdao.memberLogin(Member_ID, MEMBER_PW) == true) {
+			System.out.println(command);
+			forward.setRedirect(false);
+			forward.setPath("../index.jsp");
+			System.out.println("idSession");
+			session.setAttribute("idSession", Member_ID);
+			return forward;
+		} else {
+			forward.setRedirect(true);
+			forward.setPath("/home/bbs/login.jsp");
+
+			return forward;
+		}
+	}
+
+}

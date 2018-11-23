@@ -1,0 +1,59 @@
+package com.javalec.member;
+
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.javalec.db.MemberBean;
+import com.javalec.db.MemberDao;
+
+/*
+ * 회원가입을 처리하는 Action 클래스 
+ * joinForm.jsp에서 넘겨받은 정보를 이용하여 회원가입 처리
+ * */
+
+public class MemberJoinAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("1111111111111111111111111");
+		boolean result = false;
+
+		request.setCharacterEncoding("UTF-8");
+		ActionForward forward = new ActionForward();
+		System.out.println("1111111111111111111111111");
+
+		MemberDao memberdao = new MemberDao();
+		MemberBean memberdata = new MemberBean();
+		HttpSession session = request.getSession();
+
+		String MEMBER_ID = request.getParameter("mb_id");
+		String MEMBER_PW  = request.getParameter("mb_password");
+		String MEMBER_PWC  = request.getParameter("mb_password_re");
+		String MEMBER_NAME  = request.getParameter("mb_name");
+		String MEMBER_NICK  = request.getParameter("mb_nick");
+		String MEMBER_EMAIL = request.getParameter("mb_email");
+		String MEMBER_COM = request.getParameter("mb_1");
+		String MEMBER_HOMEPAGE = request.getParameter("mb_homepage");
+		String MEMBER_TEL = request.getParameter("mb_tel");
+		String MEMBER_PHONE = request.getParameter("mb_hp");
+		String MEMBER_ADD1 = request.getParameter("mb_add1");
+		String MEMBER_ADD2 = request.getParameter("mb_add2");
+		String MEMBER_ADD2 = request.getParameter("mb_add3");
+		String MEMBER_MAIL = request.getParameter("mb_mailling");
+		String MEMBER_SMS = request.getParameter("mb_sms");
+
+		memberdao.memberJoin(MEMBER_ID, MEMBER_PW, MEMBER_PWC, MEMBER_NAME, MEMBER_NICK, MEMBER_EMAIL, 
+				 MEMBER_COM,  MEMBER_TEL, MEMBER_PHONE, MEMBER_HOMEPAGE, MEMBER_ADD1, MEMBER_ADD2,MEMBER_ADD3, MEMBER_MAIL, MEMBER_SMS);
+		System.out.println(MEMBER_ID+","+MEMBER_PW+","+MEMBER_PWC+","+MEMBER_NAME+","+MEMBER_NICK+","+MEMBER_EMAIL+","+MEMBER_EMAIL);
+		forward.setRedirect(true);
+		forward.setPath("loginForm.jsp");
+		session.setAttribute("idSession", MEMBER_ID);
+
+		return forward;
+
+	}
+
+}

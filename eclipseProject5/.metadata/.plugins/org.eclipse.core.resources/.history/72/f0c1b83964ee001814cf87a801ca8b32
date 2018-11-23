@@ -1,0 +1,59 @@
+package com.javalec.member;
+
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.javalec.db.MemberBean;
+import com.javalec.db.MemberDao;
+
+/*
+ * 회원가입을 처리하는 Action 클래스 
+ * joinForm.jsp에서 넘겨받은 정보를 이용하여 회원가입 처리
+ * */
+
+public class MemberJoinAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("1111111111111111111111111");
+		boolean result = false;
+
+		request.setCharacterEncoding("UTF-8");
+		ActionForward forward = new ActionForward();
+		System.out.println("1111111111111111111111111");
+
+		MemberDao memberdao = new MemberDao();
+		MemberBean memberdata = new MemberBean();
+		HttpSession session = request.getSession();
+
+		String mb_id = request.getParameter("mb_id");
+		String mb_password  = request.getParameter("mb_password");
+		String mb_password_re  = request.getParameter("mb_password_re");
+		String mb_name  = request.getParameter("mb_name");
+		String mb_nick  = request.getParameter("mb_nick");
+		String mb_email = request.getParameter("mb_email");
+		String mb_1 = request.getParameter("mb_1");
+		String mb_homepage = request.getParameter("mb_homepage");
+		String mb_tel = request.getParameter("mb_tel");
+		String mb_hp = request.getParameter("mb_hp");
+		String mb_add1 = request.getParameter("mb_add1");
+		String mb_add2 = request.getParameter("mb_add2");
+		String mb_add3 = request.getParameter("mb_add3");
+		String mb_mailling = request.getParameter("mb_mailling");
+		String mb_sms = request.getParameter("mb_sms");
+
+		memberdao.memberJoin(mb_id, mb_password, mb_password_re, mb_name, mb_nick, mb_email, 
+				mb_1,  mb_homepage, mb_tel, mb_hp, mb_add1, mb_add2, mb_add3, mb_mailling, mb_sms);
+		
+		forward.setRedirect(true);
+		forward.setPath("loginForm.jsp");
+		session.setAttribute("idSession", mb_id);
+
+		return forward;
+
+	}
+
+}

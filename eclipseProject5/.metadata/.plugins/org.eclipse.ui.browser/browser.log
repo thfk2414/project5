@@ -1,0 +1,79 @@
+
+11월 20, 2018 13:54:45.46 NEW SESSION
+11월 20, 2018 13:54:45.46 [11276:12512:1120/135445.461:ERROR:ssl_client_socket_impl.cc(1061)] handshake failed; returned -1, SSL error code 1, net_error -101
+11월 20, 2018 16:43:11.95 [11276:2692:1120/164311.950:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 20, 2018 16:43:14.50 [11276:12512:1120/164311.953:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 20, 2018 16:44:41.72 [11276:2692:1120/164441.724:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+
+11월 22, 2018 07:12:59.68 NEW SESSION
+11월 22, 2018 07:12:59.68 [6820:11140:1122/071259.679:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 07:12:59.69 [6820:5556:1122/071259.692:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 07:12:59.70 [6820:7912:1122/071259.702:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 09:12:00.37 [6820:11140:1122/091159.999:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 09:12:00.37 [6820:7912:1122/091200.363:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -106
+11월 22, 2018 09:12:00.83 [6820:5556:1122/091200.829:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 09:12:09.05 [6820:7912:1122/091209.043:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 09:12:09.07 [6820:5556:1122/091209.070:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 09:12:14.36 [6820:7912:1122/091214.362:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -105
+11월 22, 2018 09:12:14.36 [6820:5556:1122/091214.362:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 09:12:19.63 [6820:7912:1122/091219.635:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 09:12:22.70 [6820:7912:1122/091222.707:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 09:25:01.92 [6820:7912:1122/092501.924:ERROR:socket_stream.cc(219)] Closing stream with result -2
+11월 22, 2018 10:19:47.82 [6820:5556:1122/101947.823:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 10:21:24.13 [6820:5556:1122/102124.130:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 10:21:24.38 [6820:11140:1122/102124.381:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 10:22:12.81 [6820:11140:1122/102212.815:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 11:14:04.26 [6820:11140:1122/111404.264:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+
+11월 22, 2018 15:44:25.82 NEW SESSION
+11월 22, 2018 15:44:25.82 [2532:6388:1122/154425.820:ERROR:cache_util_win.cc(19)] Unable to move the cache: 5
+11월 22, 2018 15:44:25.82 [2532:6388:1122/154425.820:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\winkite\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\winkite\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+11월 22, 2018 15:44:25.82 [2532:6388:1122/154425.820:ERROR:disk_cache.cc(168)] Unable to create cache
+11월 22, 2018 15:44:25.82 [2532:6388:1122/154425.820:ERROR:shader_disk_cache.cc(620)] Shader Cache Creation failed: -2
+11월 22, 2018 15:44:26.17 기존 브라우저 세션에 새 창을 생성했습니다.
+11월 22, 2018 19:29:42.51 [2532:1028:1122/192942.509:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 19:29:42.51 [2532:6388:1122/192942.510:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 20:59:56.31 [2532:6388:1122/205955.525:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -106
+11월 22, 2018 20:59:56.80 [2532:1028:1122/205956.801:ERROR:gcm_channel_status_request.cc(151)] GCM channel request failed.
+11월 22, 2018 20:59:59.37 [2532:12880:1122/205959.375:ERROR:get_updates_processor.cc(242)] PostClientToServerMessage() failed during GetUpdates
+11월 22, 2018 21:00:11.34 [2532:6388:1122/210011.343:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 21:00:14.42 [2532:6388:1122/210014.428:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 22, 2018 21:03:41.83 [2532:1028:1122/210341.835:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 22, 2018 22:25:40.81 [6412:5504:1122/222540.810:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 22, 2018 22:40:19.87 [13644:12720:1122/224019.872:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 22, 2018 22:47:46.96 [6808:13988:1122/224746.965:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 22, 2018 22:58:35.54 [10252:10016:1122/225835.541:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 24:38:44.10 [5780:14068:1123/003844.107:ERROR:cache_util_win.cc(19)] Unable to move the cache: 5
+11월 23, 2018 24:38:44.11 [5780:14068:1123/003844.107:ERROR:cache_util.cc(140)] Unable to move cache folder C:\Users\winkite\AppData\Local\Google\Chrome\User Data\ShaderCache\GPUCache to C:\Users\winkite\AppData\Local\Google\Chrome\User Data\ShaderCache\old_GPUCache_000
+11월 23, 2018 24:38:44.11 [5780:14068:1123/003844.107:ERROR:disk_cache.cc(168)] Unable to create cache
+11월 23, 2018 24:38:44.11 [5780:14068:1123/003844.107:ERROR:shader_disk_cache.cc(620)] Shader Cache Creation failed: -2
+11월 23, 2018 24:38:44.64 기존 브라우저 세션에 새 창을 생성했습니다.
+11월 23, 2018 24:39:13.98 [9928:14256:1123/003913.981:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 01:01:55.42 [4184:12336:1123/010155.421:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 01:56:28.77 [7776:4548:1123/015628.770:ERROR:ssl_client_socket_impl.cc(1061)] handshake failed; returned -1, SSL error code 1, net_error -101
+11월 23, 2018 01:58:07.09 [7776:9704:1123/015807.095:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 02:14:39.08 [7444:11076:1123/021439.081:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 02:17:54.49 [3428:6404:1123/021754.497:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 02:20:18.05 [5384:7048:1123/022018.058:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 02:22:02.33 [8112:3024:1123/022202.335:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 04:27:04.53 [14020:13512:1123/042704.531:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 04:29:16.90 [10340:14056:1123/042916.905:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 04:49:39.73 [2536:5836:1123/044939.731:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 04:50:32.27 [12308:10860:1123/045032.278:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 09:51:17.66 [9300:976:1123/095117.667:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 09:58:18.76 [9404:1568:1123/095818.767:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 10:09:39.59 [2172:8776:1123/100939.589:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 10:19:03.33 [9180:10716:1123/101903.334:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 10:23:56.34 [11516:9384:1123/102356.348:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 10:26:16.82 [7980:14272:1123/102616.820:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 11:19:16.17 [3104:11508:1123/111916.177:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 23, 2018 11:19:27.37 [3104:11508:1123/111927.375:ERROR:connection_factory_impl.cc(400)] Failed to connect to MCS endpoint with error -21
+11월 23, 2018 11:31:03.39 [3104:11328:1123/113103.393:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 11:37:37.34 [7704:7488:1123/113737.344:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 12:05:14.34 [4972:7212:1123/120514.341:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 12:08:00.17 [2376:12880:1123/120800.175:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 14:19:09.76 [10572:12920:1123/141909.766:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 14:20:04.39 [6936:800:1123/142004.391:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 15:57:09.02 [9224:10840:1123/155709.028:ERROR:http_bridge.cc(126)] NOT IMPLEMENTED
+11월 23, 2018 16:05:44.88 [4436:2416:1123/160544.888:ERROR:ssl_client_socket_impl.cc(1061)] handshake failed; returned -1, SSL error code 1, net_error -101
+11월 23, 2018 16:16:41.39 [4436:2416:1123/161641.394:ERROR:ssl_client_socket_impl.cc(1061)] handshake failed; returned -1, SSL error code 1, net_error -101
