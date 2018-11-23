@@ -1,0 +1,44 @@
+package com.javalec.commmand;
+
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.javalec.commmand.*;
+import com.javalec.db.*;
+
+/*
+ * 회원가입을 처리하는 Action 클래스 
+ * joinForm.jsp에서 넘겨받은 정보를 이용하여 회원가입 처리
+ * */
+
+public class MemberJoinAction implements Action {
+
+	@Override
+	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		// TODO Auto-generated method stub
+
+		boolean result = false;
+
+		request.setCharacterEncoding("UTF-8");
+		ActionForward forward = new ActionForward();
+
+		BoardDAO boarddao = new BoardDAO();
+		BoardBean boarddata = new BoardBean();
+		HttpSession session = request.getSession();
+
+		String Member_ID = request.getParameter("Member_ID");
+		String Member_PASS = request.getParameter("Member_PASS");
+		String Member_NAME = request.getParameter("Member_NAME");
+		boarddao.memberJoin(Member_ID, Member_PASS, Member_NAME);
+
+		forward.setRedirect(true);
+		forward.setPath("loginForm.jsp");
+		session.setAttribute("idSession", Member_ID);
+
+		return forward;
+
+	}
+
+}

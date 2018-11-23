@@ -1,0 +1,259 @@
+package com.javalec.db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class MemberDao {
+	Connection con;
+	PreparedStatement pstmt;
+	ResultSet rs;
+
+	// 디비연결 해주기 위해 로직 처리
+	public MemberDao() {
+		try {
+			Context init = new InitialContext();
+			DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+			con = ds.getConnection();
+		} catch (Exception ex) {
+			System.out.println("DB 연결실패: " + ex);
+			return;
+		}
+	}
+
+	// 회원가입=====================================================================================================
+	public boolean memberJoin(String MEMBER_ID, String MEMBER_PW, String MEMBER_PWC, String MEMBER_NAME,
+			String MEMBER_NICK, String MEMBER_EMAIL, String MEMBER_COM, String MEMBER_TEL, String MEMBER_PHONE,
+			String MEMBER_HOMEPAGE, String MEMBER_ADD, String MEMBER_ADD1, String MEMBER_MAIL, String MEMBER_SMS)
+			throws SQLException {
+		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String id = MEMBER_ID;
+		String password = MEMBER_PW;
+		String passc = MEMBER_PWC;
+		String name = MEMBER_NAME;
+		String nickname = MEMBER_NICK;
+		String e_mail = MEMBER_EMAIL;
+		String company = MEMBER_COM;
+		String homepage = MEMBER_HOMEPAGE;
+		String tel = MEMBER_TEL;
+		String phone = MEMBER_PHONE;
+		String address = MEMBER_ADD; // 주소
+		String address1 = MEMBER_ADD1; // 주소
+		String mailservice = MEMBER_MAIL;
+		String smsservice = MEMBER_SMS;
+
+		ResultSet rs = null;
+		try {
+
+			String sql = "INSERT INTO JOIN\r\n"
+					+ "(MEMBER_ID,MEMBER_PW,MEMBER_PWC,MEMBER_NAME,MEMBER_NICK,MEMBER_EMAIL,MEMBER_COM,MEMBER_TEL,MEMBER_PHONE,MEMBER_HOMEPAGE,MEMBER_ADD,MEMBER_ADD1,MEMBER_MAIL,MEMBER_SMS) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+			pstmt.setString(3, passc);
+			pstmt.setString(4, name);
+			pstmt.setString(5, nickname);
+			pstmt.setString(6, e_mail);
+			pstmt.setString(7, company);
+			pstmt.setString(8, tel);
+			pstmt.setString(9, phone);
+			pstmt.setString(10, homepage);
+			pstmt.setString(11, address);
+			pstmt.setNString(12, address1);
+			pstmt.setString(13, mailservice);
+			pstmt.setString(14, smsservice);
+			System.out.println(id + password + passc + name);
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+	// 로그인
+	public boolean memberLogin(String MEMBER_ID, String MEMBER_PW) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String id = MEMBER_ID;
+		String password = MEMBER_PW;
+
+		ResultSet rs = null; // db占쎈퓠占쎄퐣 揶쏅�れ뱽 獄쏆룇釉섆틠�눖�뮉野껓옙
+
+		try {
+			Context context = new InitialContext();
+			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/OracleDB");
+			conn = dataSource.getConnection();
+
+			String query = "SELECT * FROM JOIN WHERE MEMBER_ID=? and MEMBER_PW=?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				if (id.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return false;
+
+	}
+
+	// 멤버목록
+	public List getMemberList() {
+		String sql = "SELECT * FROM JOIN";
+		List memberlist = new ArrayList();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				MemberBean memberdata = new MemberBean();
+
+				memberdata.setMEMBER_ID(rs.getString("MEMBER_ID"));
+				memberdata.setMEMBER_PW(rs.getString("MEMBER_PASS"));
+				memberdata.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+
+				memberlist.add(memberdata);
+			}
+
+			return memberlist;
+		} catch (Exception ex) {
+			System.out.println("getDeatilMember �뿉�윭: " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+		}
+		return null;
+	}
+
+	// 멤버삭제
+	public boolean memberDelete(String Member_ID) {
+
+		System.out.println("삭제 부분에 입성");
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+		try {
+
+			String query = "DELETE FROM JOIN WHERE Member_ID=?";
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, Member_ID);
+			result = pstmt.executeUpdate();
+			if (result != 0) {
+				return true;
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return false;
+	}
+
+	// 멤버정보
+	public MemberBean memberInfo(String Member_ID) {
+		String query = "SELECT * FROM JOIN WHERE Member_ID=?";
+
+		try {
+			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, Member_ID);
+			rs = pstmt.executeQuery();
+			rs.next();
+
+			MemberBean member = new MemberBean();
+			member.setMEMBER_ID(rs.getString("Member_ID"));
+			member.setMEMBER_PW(rs.getString("Member_PASS"));
+			member.setMEMBER_NAME(rs.getString("Member_NAME"));
+			return member;
+
+		} catch (Exception ex) {
+			System.out.println("getDeatilMember �뿉�윭: " + ex);
+		} finally {
+			if (rs != null)
+				try {
+					rs.close();
+				} catch (SQLException ex) {
+				}
+			if (pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException ex) {
+				}
+		}
+
+		return null;
+
+	}
+	
+
+}

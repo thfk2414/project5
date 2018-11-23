@@ -1,0 +1,24 @@
+package com.javalec.db;
+
+public class MemberBean {
+//데이터 get set
+
+	private String mb_id;
+	private String mb_password;
+	private String mb_password_re;
+	private String mb_name;
+	private String mb_nick_default;
+	private String mb_email;
+	private String mb_1;
+	private String mb_homepage;
+	private String mb_tel;
+	private String mb_zip;
+	private String mb_addr1;
+	private String mb_addr2;
+	private String mb_addr3;
+	private String mb_mailling;
+	private String mb_sms;
+
+	
+
+}

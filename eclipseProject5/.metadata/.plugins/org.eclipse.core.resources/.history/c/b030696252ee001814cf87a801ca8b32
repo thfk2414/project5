@@ -1,0 +1,5 @@
+package com.javalec.member;
+
+public class MemberJoinAction {
+
+}

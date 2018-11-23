@@ -1,0 +1,155 @@
+package com.javalec.db;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class MemberDao {
+	Connection con;
+	PreparedStatement pstmt;
+	ResultSet rs;
+
+//디비연결 해주기 위해 로직 처리
+	
+	public MemberDao() {
+		try{
+			Context init = new InitialContext();
+	  		DataSource ds = (DataSource) init.lookup("java:comp/env/jdbc/OracleDB");
+	  		con = ds.getConnection();
+		}catch(Exception ex){
+			System.out.println("DB 연결실패: " + ex);
+			return;
+		}
+	}
+	
+	
+	//------------------------------------회원가입 시작----------------------------------
+
+	
+		
+// -----------------------------------------------------------member login
+	public boolean memberLogin(String MEMBER_ID, String MEMBER_PW) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+
+		String id = MEMBER_ID;
+		String password = MEMBER_PW;
+
+		ResultSet rs = null; // db占쎈퓠占쎄퐣 揶쏅�れ뱽 獄쏆룇釉섆틠�눖�뮉野껓옙
+
+		try {
+			Context context = new InitialContext();
+			DataSource dataSource = (DataSource) context.lookup("java:comp/env/jdbc/OracleDB");
+			conn = dataSource.getConnection();
+
+			String query = "SELECT * FROM JOIN WHERE MEMBER_ID=? and MEMBER_PW=?";
+			pstmt = conn.prepareStatement(query);
+
+			pstmt.setString(1, id);
+			pstmt.setString(2, password);
+
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				if (id.equals(rs.getString(1)) && password.equals(rs.getString(2))) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+				e2.printStackTrace();
+			}
+		}
+		return false;
+
+	}
+	
+
+
+public void memberJoin(String mb_id, String mb_password, String mb_password_re, String mb_name, String mb_nick,
+		String mb_email, String mb_1, String mb_homepage, String mb_tel, String mb_hp, String mb_add1, String mb_add2,
+		String mb_add3, String mb_mailling, String mb_sms) {
+	// TODO Auto-generated method stub
+	
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+
+	
+    
+	ResultSet rs = null; // db�뿉�꽌 媛믪쓣 諛쏆븘二쇰뒗寃�
+	try {
+
+		String sql = "INSERT INTO JOIN\r\n" + 
+				"(mb_id, mb_password, mb_password_re, mb_name, mb_nick, mb_email, \r\n" + 
+				"				mb_1,  mb_homepage, mb_tel, mb_hp, mb_add1, mb_add2, mb_add3, mb_mailling, mb_sms) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		pstmt = con.prepareStatement(sql);
+		pstmt.setString(1,mb_id);
+		pstmt.setString(2,mb_password);
+		pstmt.setString(3,mb_password_re);
+		pstmt.setString(4,mb_name);
+		pstmt.setString(5,mb_nick);
+		pstmt.setString(6,mb_email);
+		pstmt.setString(7,mb_1);
+		pstmt.setString(8,mb_homepage);
+		pstmt.setString(9,mb_tel);
+		pstmt.setString(10,mb_hp);
+		pstmt.setString(11,mb_add1);
+		pstmt.setNString(12, mb_add2);
+		pstmt.setString(13,mb_add3);
+		pstmt.setString(14,mb_mailling);
+		pstmt.setString(14,mb_sms);
+		System.out.println(mb_id+mb_password+mb_password_re+mb_name);
+		pstmt.executeUpdate();
+
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+		
+	} finally {
+		try {
+			if (rs != null)
+				rs.close();
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		} catch (Exception e2) {
+			// TODO: handle exception
+			e2.printStackTrace();
+		}
+	}
+	return false;
+
+}
+}
+
+
+
+
+
+
+	
+
+
+}
